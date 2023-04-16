@@ -1,1 +1,1 @@
-### How to manage auto scalling & load balancing in AWS using terraform module for multiple environments!
+### How to manage auto scalling & load balancing in AWS using terraform module for multiple environments with GitHub Actions?
