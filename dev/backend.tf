@@ -1,4 +1,3 @@
-#backend S3
 terraform {
   backend "s3" {
     bucket  = "dhsoni-terraform"
