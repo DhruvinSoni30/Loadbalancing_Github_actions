@@ -1,4 +1,4 @@
-# configure aws provider
+# configure aws provider for terraform
 provider "aws" {
   region  = var.region
   #profile = "default"
@@ -57,6 +57,3 @@ module "auto_scaling" {
   target_group_arn = module.alb.target_group_arn
 
 }
-
-
-
