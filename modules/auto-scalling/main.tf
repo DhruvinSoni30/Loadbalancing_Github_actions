@@ -25,16 +25,17 @@ resource "aws_launch_configuration" "custom-launch-config" {
   key_name        = var.key_name
   security_groups = [var.public_ec2_security_group]
   user_data       = << EOF
-                      sudo yum update -y
-                      sudo amazon-linux-extras install docker -y
-                      sudo service docker start
-                      sudo usermod -a -G docker ec2-user
-                      sudo chkconfig docker on
-                      sudo yum install -y git
-                      sudo chmod 666 /var/run/docker.sock
-                      docker pull dhruvin30/dhsoniweb:v1
-                      docker run -d -p 80:80 dhruvin30/dhsoniweb:v1
-                      EOF
+  #!/bin/bash
+  sudo yum update -y
+  sudo amazon-linux-extras install docker -y
+  sudo service docker start
+  sudo usermod -a -G docker ec2-user
+  sudo chkconfig docker on
+  sudo yum install -y git
+  sudo chmod 666 /var/run/docker.sock
+  docker pull dhruvin30/dhsoniweb:v1
+  docker run -d -p 80:80 dhruvin30/dhsoniweb:v1
+  EOF
   
   lifecycle {
     create_before_destroy = true
